@@ -1,38 +1,38 @@
 already read
-introduction to algorithm,Thomas H.Cormen & Charles E.Leiserson & Ronald L.Rivest & Clifford Stein
-1452865670
-vbird's cookbook,vbird's
-1452866331
-programming pearls,Jon Bently
-1452865689
-algorithms,unknown
-1452866452
-point on c,unknown
-1452865727
-c implements and interface,unknown
-1452866396
-
-javascript
-javascript dom,unknown
-1452866497
-javascript,unknown
-1452866484
-
-python
-learn python the hard way,unknown
-1452866543
-beginning python,Magnus Lie Hetland
-1452866523
-
-c++
-c++ primer,unknown
-1452866557
-the c++ programming language,Bjarne Stroustrup
-1452865709
-
-other books
 steve jobs,unknown
 1452866591
+c implements and interface,unknown@very useful book, maybe the best c implements book
+1452866396
+point on c,unknown@the best C re-beginning book in my mind
+1452865727
+algorithms,unknown
+1452866452
+programming pearls,Jon Bently@the most interesting algorithm book i ever read, Jon is so funny
+1452865689
+vbird's cookbook,vbird's
+1452866331
+introduction to algorithm,Thomas H.Cormen & Charles E.Leiserson & Ronald L.Rivest & Clifford Stein
+1452865670
+
+javascript
+javascript,unknown
+1452866484
+javascript dom,unknown
+1452866497
+
+python
+beginning python,Magnus Lie Hetland
+1452866523
+learn python the hard way,unknown
+1452866543
+
+c++
+the c++ programming language,Bjarne Stroustrup@very good book, but the author harps too much
+1452865709
+c++ primer,unknown
+1452866557
+
+other books
 how to solve it,unknown
 1452866576
 
@@ -41,16 +41,16 @@ java core,unknown
 1452866630
 
 algorithm
-the art of computer programming volume4,Knuth
-1452866734
-the art of computer programming volume3,Knuth
-1452866708
-the art of computer programming volume2,Knuth
-1452866689
-the art of computer programming volume1,Knuth
-1452866657
 more programming pearls,Jon Bently
 1453972158
+the art of computer programming volume1,Knuth
+1452866657
+the art of computer programming volume2,Knuth
+1452866689
+the art of computer programming volume3,Knuth
+1452866708
+the art of computer programming volume4,Knuth
+1452866734
 
 c language
 the c programming language,Brian W. Kernighan & Dennis M. Ritchie

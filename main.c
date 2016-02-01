@@ -174,7 +174,7 @@ void userface(void){
 				}else if(!strncmp(choose,"read",4)){
 					printf("Working! Wait a moment ...\n");
 					sleep(1);
-					showRead();
+					showRead(stdout);
 				}else if(!strncmp(choose,"one",3)){
 					printf("Type direction: ");
 					fgets(dir,100,stdin);

@@ -15,7 +15,7 @@ unsigned hash(char* str){
 	return (unsigned)i;
 }
 void readFile(void){
-	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup6.0/mybook","r");
+	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup7.0/mybook","r");
 	if(fp==NULL)
 		return;
 	char dir[100],bookname[200],*authorname=NULL,*comment=NULL;
@@ -26,12 +26,11 @@ void readFile(void){
 	while(fgets(bookname,200,fp)&&*bookname!='\n'){
 		bookname[strlen(bookname)-1]='\0';
 		authorname=strchr(bookname,',')+1;
-		comment=strrchr(bookname,',')+1;
 		*(authorname-1)='\0';
-		if(authorname==comment){
-			comment=NULL;
-		}else{
-			*(comment-1)='\0';
+		comment=strchr(authorname,'@');
+		if(comment){
+			*comment='\0';
+			comment++;
 		}
 		fscanf(fp,"%ld",&t);
 		fgetc(fp);
@@ -52,12 +51,11 @@ void readFile(void){
 		while(fgets(bookname,200,fp)&&*bookname!='\n'){
 			bookname[strlen(bookname)-1]='\0';
 			authorname=strchr(bookname,',')+1;
-			comment=strrchr(bookname,',')+1;
 			*(authorname-1)='\0';
-			if(authorname==comment){
-				comment=NULL;
-			}else{
-				*(comment-1)='\0';
+			comment=strchr(authorname,'@');
+			if(comment){
+				*comment='\0';
+				comment++;
 			}
 			fscanf(fp,"%ld",&t);
 			fgetc(fp);
@@ -271,7 +269,7 @@ int showOne(char* dirname){        //show one direction
 	}
 	return 0;                 //not
 }
-void show(FILE* fp,int number){	//show some or showall
+void show(FILE* fp,int number){		//show some or showall
 	dircptr dp;
 	int i;
 	for(i=0;i<hashNumber;++i){
@@ -281,9 +279,11 @@ void show(FILE* fp,int number){	//show some or showall
 			dp=dp->next;
 		}
 	}
+	if(number<=0)		//show read
+		showRead(fp);
 }
-void showRead(void){
-	list(stdout,&read);
+void showRead(FILE* fp){
+	list(fp,&read);
 }
 void showDir(void){
 	int num=1;
@@ -302,7 +302,7 @@ void toFile(void){
 	dircptr d;
 	listptr l1,l2;
 	book* b;
-	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup6.0/mybook","w");
+	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup7.0/mybook","w");
 	l1=read.allbook;
 	fprintf(fp,"%s\n",read.name);
 	while(l1){
@@ -310,7 +310,7 @@ void toFile(void){
 		b=(book*)l1->x;
 		fprintf(fp,"%s,%s",b->name,b->author);
 		if(b->comment)
-			fprintf(fp,",%s",b->comment);
+			fprintf(fp,"@%s",b->comment);
 		fprintf(fp,"\n%ld\n",b->t);
 		free(b->name);free(b->author);free(b->comment);
 		free(b);
@@ -330,7 +330,7 @@ void toFile(void){
 				b=(book*)l1->x;
 				fprintf(fp,"%s,%s",b->name,b->author);
 				if(b->comment)
-					fprintf(fp,",%s",b->comment);
+					fprintf(fp,"@%s",b->comment);
 				fprintf(fp,"\n%ld\n",b->t);
 				free(b->name);free(b->author);free(b->comment);
 				free(b);

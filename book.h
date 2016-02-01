@@ -35,7 +35,7 @@ extern int delBook(char* ,char* );
 extern int delInRead(char* );
 extern void list(FILE* ,dircptr );
 extern void readFile(void);
-extern void showRead(void);
+extern void showRead(FILE*);
 extern unsigned hash(char* );
 extern int changeAuthor(char* ,char* ,char* );
 extern int changeComment(char* , char* ,char* );
