@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<stddef.h>
 #include<assert.h>
 #include<time.h>
 #define hashNumber 47
@@ -29,14 +30,13 @@ extern void showDir(void);
 extern void showList(void);
 extern int showOne(char*);
 extern void toFile(void);
-extern unsigned hash(char* );
 extern int addBook(char* dir,char* book,char* author,char* comment,time_t );
 extern int delBook(char* ,char* );
 extern int delInRead(char* );
 extern void list(FILE* ,dircptr );
 extern void readFile(void);
 extern void showRead(FILE*);
-extern unsigned hash(char* );
+extern size_t hash(const char*);
 extern int changeAuthor(char* ,char* ,char* );
 extern int changeComment(char* , char* ,char* );
 extern dircptr searchDir(char* );

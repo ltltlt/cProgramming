@@ -3,16 +3,16 @@ char already[]="already read";          //it can work because it's not conversio
 //char* already="already read";      c++11 not allow conversion from string literal to char*
 dirc read={already,NULL,0};
 dircptr hashtable[hashNumber];
-unsigned hash(char* str){
+size_t hash(const char* str){
 	int j=0;
 	long i=0;
 	int len=strlen(str);
 	while(j<len){
-		i*=2;
-		i+=str[j++];
+		i<<=1;
+		i^=str[j++];
 	}
 	i%=hashNumber;
-	return (unsigned)i;
+	return (size_t)i;
 }
 void readFile(void){
 	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup7.0/mybook","r");
@@ -45,7 +45,7 @@ void readFile(void){
 		newdir->name=(char*)malloc(strlen(dir)+1);
 		assert(newdir->name);
 		strncpy(newdir->name,dir,strlen(dir));
-		unsigned i=hash(dir);
+		size_t i=hash(dir);
 		newdir->next=hashtable[i];
 		hashtable[i]=newdir;
 		while(fgets(bookname,200,fp)&&*bookname!='\n'){
@@ -135,7 +135,7 @@ int addDir(char* dirname){
 		return 0;
 	dircptr newdir=(dircptr)malloc(sizeof(dirc));
 	newdir->number=0;
-	unsigned i=hash(dirname);
+	size_t i=hash(dirname);
 	newdir->next=hashtable[i];
 	hashtable[i]=newdir;
 	newdir->allbook=NULL;
@@ -146,7 +146,7 @@ int addDir(char* dirname){
 }
 int delDir(char* dirname){
 	assert(dirname);
-	unsigned i=hash(dirname);
+	size_t i=hash(dirname);
 	dircptr* dp=&hashtable[i];
 	dircptr current;
 	int len=strlen(dirname); 

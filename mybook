@@ -14,32 +14,6 @@ vbird's cookbook,vbird's
 introduction to algorithm,Thomas H.Cormen & Charles E.Leiserson & Ronald L.Rivest & Clifford Stein
 1452865670
 
-javascript
-javascript,unknown
-1452866484
-javascript dom,unknown
-1452866497
-
-python
-beginning python,Magnus Lie Hetland
-1452866523
-learn python the hard way,unknown
-1452866543
-
-c++
-the c++ programming language,Bjarne Stroustrup@very good book, but the author harps too much
-1452865709
-c++ primer,unknown
-1452866557
-
-other books
-how to solve it,unknown
-1452866576
-
-java
-java core,unknown
-1452866630
-
 algorithm
 more programming pearls,Jon Bently
 1453972158
@@ -52,15 +26,41 @@ the art of computer programming volume3,Knuth
 the art of computer programming volume4,Knuth
 1452866734
 
-c language
-the c programming language,Brian W. Kernighan & Dennis M. Ritchie
-1452866771
-
-operating system
-
 computer science
+
+javascript
+javascript,unknown
+1452866484
+javascript dom,unknown
+1452866497
 
 programming
 the practice of programming,Brian W. Kernighan & Rob Pike
 1452931798
+
+c++
+the c++ programming language,Bjarne Stroustrup@excellent C++ book
+1452865709
+c++ primer,unknown
+1452866557
+
+python
+beginning python,Magnus Lie Hetland
+1452866523
+learn python the hard way,unknown
+1452866543
+
+c language
+the c programming language,Brian W. Kernighan & Dennis M. Ritchie
+1452866771
+
+java
+java core,unknown
+1452866630
+
+other books
+how to solve it,unknown
+1452866576
+
+operating system
 
