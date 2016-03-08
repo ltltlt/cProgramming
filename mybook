@@ -13,8 +13,14 @@ vbird's cookbook,vbird's
 1452866331
 introduction to algorithm,Thomas H.Cormen & Charles E.Leiserson & Ronald L.Rivest & Clifford Stein
 1452865670
+the c++ programming language,Bjarne Stroustrup@the c++ book you must read
+1452865709
+effective c++,Scott Meyers@nice
+1456410762
 
 algorithm
+the algorithm design manual,Steven S.Skiena
+1457420196
 more programming pearls,Jon Bently
 1453972158
 the art of computer programming volume1,Knuth
@@ -28,6 +34,14 @@ the art of computer programming volume4,Knuth
 
 computer science
 
+mathematic
+linear algebra done right,Sheldon Axler
+1457421087
+algebra,Michael Artin
+1457421053
+a course in probability theory,Kai Lai Chung
+1457421028
+
 javascript
 javascript,unknown
 1452866484
@@ -35,14 +49,34 @@ javascript dom,unknown
 1452866497
 
 programming
+Design Patterns,unknown
+1457420029
 the practice of programming,Brian W. Kernighan & Rob Pike
 1452931798
 
 c++
-the c++ programming language,Bjarne Stroustrup@excellent C++ book
-1452865709
+modern C++ design,Anderi Alexandrescu
+1457420092
+effective modern C++,Scott Meyers
+1457419833
+effective STL,Scott Meyers
+1457419806
+the design and evolution of c++,unknown
+1457188498
 c++ primer,unknown
 1452866557
+more effective c++,Scott Meyers
+1456410792
+inside the c++ object model,unknown
+1457188318
+the C++ standard library,Nicolai M.Josuttis
+1457420455
+the C++ programming language(4 edition),Bjarne Stroustraup
+1457420534
+C++ coding standards,Herb Sutter
+1457420583
+rumination on C++,Andrew Koenig & Barbara E.Moo
+1457420855
 
 python
 beginning python,Magnus Lie Hetland
@@ -50,17 +84,31 @@ beginning python,Magnus Lie Hetland
 learn python the hard way,unknown
 1452866543
 
+compiler
+a retargetable C compiler:design and implementation,David R.Hanson
+1457420786
+
 c language
+writing solid code,Stephen A.Maguire
+1457420143
+the standard C library,P.J.Plauger
+1457419905
 the c programming language,Brian W. Kernighan & Dennis M. Ritchie
 1452866771
 
 java
+thinking in java,unknown
+1457419741
 java core,unknown
 1452866630
 
 other books
 how to solve it,unknown
 1452866576
+
+c#
+CLR via C#,Jeffrey Richter
+1457420336
 
 operating system
 

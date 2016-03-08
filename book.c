@@ -205,7 +205,7 @@ int del(dircptr d,char* bookname){
 	if(d->allbook==NULL)
 		return 0;
 	listptr* l=&d->allbook;
-	book* x;
+	book* x=NULL;
 	while(*l){
 		x=(book*)((*l)->x);
 		if(!strcmp(x->name,bookname)){
@@ -226,8 +226,8 @@ int del(dircptr d,char* bookname){
 int delInRead(char* bookname){
 	assert(bookname);
 	listptr *l=&read.allbook;
-	book* x;
-	listptr current;
+	book* x=NULL;
+	listptr current=NULL;
 	while(*l){
 		current=*l;
 		x=(book*)current->x;
@@ -247,8 +247,8 @@ void list(FILE* fp,dircptr d){
 	assert(d);
 	fprintf(fp,"\" %s \" ...  book number: %d \n",d->name,d->number);
 	listptr l=d->allbook;
-	struct tm* tm;
-	book* x;
+	struct tm* tm=NULL;
+	book* x=NULL;
 	while(l){
 		x=(book*)(l->x);
 		assert(x);
@@ -270,7 +270,7 @@ int showOne(char* dirname){        //show one direction
 	return 0;                 //not
 }
 void show(FILE* fp,int number){		//show some or showall
-	dircptr dp;
+	dircptr dp=NULL;
 	int i;
 	for(i=0;i<hashNumber;++i){
 		dp=hashtable[i];
@@ -288,7 +288,7 @@ void showRead(FILE* fp){
 void showDir(void){
 	int num=1;
 	int i;
-	dircptr dp;
+	dircptr dp=NULL;
 	for(i=0;i<hashNumber;i++){
 		dp=hashtable[i];
 		while(dp){
@@ -299,9 +299,9 @@ void showDir(void){
 	}
 }
 void toFile(void){
-	dircptr d;
-	listptr l1,l2;
-	book* b;
+	dircptr d=NULL;
+	listptr l1=NULL,l2=NULL;
+	book* b=NULL;
 	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup7.0/mybook","w");
 	l1=read.allbook;
 	fprintf(fp,"%s\n",read.name);
