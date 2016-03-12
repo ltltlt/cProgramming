@@ -6,6 +6,7 @@
 #include<stddef.h>
 #include<assert.h>
 #include<time.h>
+#include<ctype.h>
 #define hashNumber 47
 #include"list.h"
 typedef struct dirc{
@@ -39,5 +40,6 @@ extern void showRead(FILE*);
 extern size_t hash(const char*);
 extern int changeAuthor(char* ,char* ,char* );
 extern int changeComment(char* , char* ,char* );
-extern dircptr searchDir(char* );
+extern dircptr searchDir(const char* );
+extern void toLittle(char* ,const char* );
 #endif

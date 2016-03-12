@@ -208,12 +208,18 @@ void userface(void){
 				listptr l;
 				book* b;
 				flag=1;
+				char temp1[100],temp2[100];
+				toLittle(temp2,dir);
 				while(p&&flag==1){
-					if(!strncmp(p->name,dir,strlen(dir))){
+					toLittle(temp1,p->name);
+					if(!strncmp(temp1,temp2,strlen(dir))){
+						flag=2;					//find this dir
 						l=p->allbook;
+						toLittle(temp1,buffer);
 						while(l){
 							b=(book*)l->x;
-							if(!strncmp(b->name,buffer,strlen(buffer))&&!strcmp(b->author,author)){
+							toLittle(temp2,b->name);
+							if(!strncmp(temp1,temp2,strlen(buffer))&&!strcmp(b->author,author)){
 								printf("This book already exists,still add it? (y)es or (n)o: ");
 								getChar(c);
 								if(c=='y')
@@ -229,7 +235,10 @@ void userface(void){
 				}
 				if(flag==-1){             //not add
 					break;
-				}
+				}else if(flag==1)
+					printf("Can't find this direction, check it.\n");
+				else if(flag!=2&&flag!=0)
+					printf("Unknown error!\n");
 				time_t t;
 				time(&t);
 				char* com;

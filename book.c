@@ -3,13 +3,22 @@ char already[]="already read";          //it can work because it's not conversio
 //char* already="already read";      c++11 not allow conversion from string literal to char*
 dirc read={already,NULL,0};
 dircptr hashtable[hashNumber];
+void toLittle(char* str1,const char* str2){		//after this function str1 is the little case of str2
+	int len=strlen(str2);
+	for(int i=0;i<len;i++)
+		str1[i]=tolower(str2[i]);
+	str1[len]='\0';
+	assert(strlen(str1)==strlen(str2));
+}
 size_t hash(const char* str){
+	char temp[100];
+	toLittle(temp,str);
 	int j=0;
 	long i=0;
-	int len=strlen(str);
+	int len=strlen(temp);
 	while(j<len){
 		i<<=1;
-		i^=str[j++];
+		i^=temp[j++];
 	}
 	i%=hashNumber;
 	return (size_t)i;
@@ -118,11 +127,14 @@ int changeComment(char* dirname,char* bookname,char* changeTo){
 	}
 	return 1;          //no this book
 }
-dircptr searchDir(char* dirname){   //get the dir
+dircptr searchDir(const char* dirname){   //get the dir
 	assert(dirname);
+	char temp1[100],temp2[100];
+	toLittle(temp1,dirname);
 	dircptr p=hashtable[hash(dirname)];
 	while(p){
-		if(!strncmp(dirname,p->name,strlen(dirname)))
+		toLittle(temp2,p->name);
+		if(!strncmp(temp2,temp1,strlen(dirname)))
 			return p;
 		p=p->next;
 	}
@@ -206,14 +218,18 @@ int del(dircptr d,char* bookname){
 		return 0;
 	listptr* l=&d->allbook;
 	book* x=NULL;
+	char temp1[100],temp2[100];
+	toLittle(temp1,bookname);
 	while(*l){
 		x=(book*)((*l)->x);
-		if(!strcmp(x->name,bookname)){
+		toLittle(temp2,x->name);
+		if(!strcmp(temp1,temp2)){
 			listptr p=(*l)->next;
 			if(read.allbook)
 				read.allbook=push(read.allbook,(*l)->x);
 			else
 				read.allbook=createList((*l)->x);
+			free(*l);
 			*l=p;
 			d->number--;
 			read.number++;
@@ -228,13 +244,18 @@ int delInRead(char* bookname){
 	listptr *l=&read.allbook;
 	book* x=NULL;
 	listptr current=NULL;
+	char temp1[100],temp2[100];
+	toLittle(temp1,bookname);
 	while(*l){
 		current=*l;
 		x=(book*)current->x;
-		if(!strcmp(bookname,x->name)){
+		toLittle(temp2,x->name);
+		if(!strcmp(temp1,temp2)){
 			*l=current->next;
 			--read.number;
-			free(x->name);free(x->author);free(x->comment);
+			free(x->name);free(x->author);
+			if(x->comment)
+				free(x->comment);
 			free(x);
 			free(current);
 			return 1;          //success
@@ -309,10 +330,12 @@ void toFile(void){
 		l2=l1->next;
 		b=(book*)l1->x;
 		fprintf(fp,"%s,%s",b->name,b->author);
-		if(b->comment)
+		free(b->name);free(b->author);
+		if(b->comment){
 			fprintf(fp,"@%s",b->comment);
+			free(b->comment);
+		}
 		fprintf(fp,"\n%ld\n",b->t);
-		free(b->name);free(b->author);free(b->comment);
 		free(b);
 		free(l1);
 		l1=l2;
@@ -329,10 +352,12 @@ void toFile(void){
 				l2=l1->next;
 				b=(book*)l1->x;
 				fprintf(fp,"%s,%s",b->name,b->author);
-				if(b->comment)
+				free(b->name);free(b->author);
+				if(b->comment){
 					fprintf(fp,"@%s",b->comment);
+					free(b->comment);
+				}
 				fprintf(fp,"\n%ld\n",b->t);
-				free(b->name);free(b->author);free(b->comment);
 				free(b);
 				free(l1);
 				l1=l2;
