@@ -24,7 +24,7 @@ size_t hash(const char* str){
 	return (size_t)i;
 }
 void readFile(void){
-	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup7.0/mybook","r");
+	FILE* fp=fopen("/home/ty-l/cProgramming/book/mybook/mybook","r");
 	if(fp==NULL)
 		return;
 	char dir[100],bookname[200],*authorname=NULL,*comment=NULL;
@@ -323,7 +323,7 @@ void toFile(void){
 	dircptr d=NULL;
 	listptr l1=NULL,l2=NULL;
 	book* b=NULL;
-	FILE* fp=fopen("/home/ty-l/cProgramming/book/backup7.0/mybook","w");
+	FILE* fp=fopen("/home/ty-l/cProgramming/book/mybook/mybook","w");
 	l1=read.allbook;
 	fprintf(fp,"%s\n",read.name);
 	while(l1){
